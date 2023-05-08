@@ -2,14 +2,16 @@ spring:
   application:
     name: hr-worker
 
-    # CONFIG SERVER NAME
-  config:
-    name: config-server
-    import: optional:configserver:http://localhost:8888/
-
   # PROFILE ACTIVE
   profiles:
     active: dev
+    # CONFIG SERVER NAME
+  config:
+    import: optional:configserver:http://localhost:8888/
+
+  h2:
+    console:
+      enabled: true
 
     # CONFIG SERVER
 #    cloud:
@@ -18,9 +20,6 @@ spring:
 #        uri: optional:configserver:http://localhost:8888
 #        fail-fast: true
 
-  h2:
-    console:
-      enabled: true
 # EUREKA CLIENT
 eureka:
   client:
