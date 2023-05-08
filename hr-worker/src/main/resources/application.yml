@@ -1,19 +1,33 @@
-#spring:
-#  application:
-#    name: hr-worker
-#
-#  # Eureka server
-#  eureka:
-#    client:
-#      serviceUrl:
-#        defaultZone: http://localhost:8761/eureka
-#
-#  # Database configuration
-#  datasource:
-#    url: jdbc:h2:mem:testdb
-#    username: sa
-#    password:
-#
-#server:
-#  port: 8001
-#
+spring:
+  application:
+    name: hr-worker
+
+    # CONFIG SERVER NAME
+  config:
+    name: config-server
+    import: optional:configserver:http://localhost:8888/
+
+  # PROFILE ACTIVE
+  profiles:
+    active: dev
+
+    # CONFIG SERVER
+#    cloud:
+#      config:
+#        name: config-server
+#        uri: optional:configserver:http://localhost:8888
+#        fail-fast: true
+
+  h2:
+    console:
+      enabled: true
+# EUREKA CLIENT
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    preferIpAddress: true
+
+server:
+  port: 8001
