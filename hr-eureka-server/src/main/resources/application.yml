@@ -3,10 +3,14 @@ spring:
     name: hr-eureka-server
 
 # Eureka server
-  eureka:
-    client:
-      fetch-registry: false
-      register-with-eureka: false
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    serviceUrl:
+      defaultZone: http://${spring.application.name}:${server.port}/eureka/
+
+
 
 server:
   port: 8761
