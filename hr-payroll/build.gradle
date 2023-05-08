@@ -14,14 +14,13 @@ repositories {
 }
 
 ext {
-	set('springCloudVersion', "Hoxton.RELEASE")
+	set('springCloudVersion', "2022.0.2")
 }
 
 dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-ribbon:2.2.10.RELEASE'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
