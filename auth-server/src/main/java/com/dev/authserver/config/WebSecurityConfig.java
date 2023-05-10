@@ -1,5 +1,6 @@
 package com.dev.authserver.config;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,7 +35,7 @@ public class WebSecurityConfig {
                 .userDnPatterns("uid={0},ou=people")
                 .groupSearchBase("ou=groups")
                 .contextSource()
-                .url("ldap://localhost:8389/dc=dev,dc=com")
+                .url("ldap://localhost:8389/dc=springframework,dc=org")
                 .and()
                 .passwordCompare()
                 .passwordEncoder(new BCryptPasswordEncoder())

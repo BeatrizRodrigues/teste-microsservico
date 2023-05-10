@@ -23,12 +23,12 @@ dependencies {
 	implementation 'org.springframework.ldap:spring-ldap-core'
 	implementation 'org.springframework.security:spring-security-ldap'
 	implementation 'com.unboundid:unboundid-ldapsdk'
-	testImplementation 'org.springframework.security:spring-security-test'
 	implementation 'org.springframework.security:spring-security-oauth2-authorization-server:1.0.2'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'com.unboundid:unboundid-ldapsdk'
+	testImplementation 'org.springframework.security:spring-security-test'
+
 }
 
 dependencyManagement {
