@@ -1,0 +1,19 @@
+spring:
+  ldap:
+    embedded:
+      ldif: classpath:ldap-data.ldif
+      base: dc=dev,dc=com
+      port: 8389
+      url: ldap://localhost:8389/
+
+server:
+  port: 8082
+
+aw:
+  auth:
+    provider-uri: "http://localhost:8082"
+    jks:
+      keypass: 123456
+      storepass: 123456
+      alias: authTest
+      path: keystore/authTest.jks

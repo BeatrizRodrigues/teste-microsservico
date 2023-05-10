@@ -5,7 +5,8 @@ spring:
   # PROFILE ACTIVE
   profiles:
     active: dev
-    # CONFIG SERVER NAME
+
+  # CONFIG SERVER NAME
   config:
     import: optional:configserver:http://localhost:8888/
 
