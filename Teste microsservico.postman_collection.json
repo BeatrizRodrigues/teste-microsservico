@@ -1,0 +1,530 @@
+{
+	"info": {
+		"_postman_id": "eb19eb4d-a8e4-49be-bf94-668562648c18",
+		"name": "Teste microsservico",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16362437",
+		"_collection_link": "https://lunar-trinity-507934.postman.co/workspace/My-workspace~950863aa-c31f-49ad-ac36-913e76f6deea/collection/16362437-eb19eb4d-a8e4-49be-bf94-668562648c18?action=share&creator=16362437&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "hr-auth",
+			"item": [
+				{
+					"name": "Auth with Client Credentials - AWUSER",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "authTest",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "read",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8389/oauth2/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8389",
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth with Auth Code - AWBLOG",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "awblog",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "1HRPkQUUcO2XcIF_bxuRT-EXebFNaBGybdit0nRPpYRMx3Hc97moP-W17VrQXNZZM1Tx5izfKHB8p3b-JYPoBRVgGM_KS8LzvNihxYQoeOd2tkRVIgPbyKpXwYTR6gZu",
+									"type": "text"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "https://oidcdebugger.com/debug",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8389/oauth2/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8389",
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth with Refresh Token - AWBLOG",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "awblog",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "text"
+								},
+								{
+									"key": "refresh_token",
+									"value": "ptI9ZGLuYvJA1jGXng66-tMA0wuAQOzuZMjkky254DEjgXtzkwijPJByz2FS051PPJNLAPAjSGJqjDs0_w7YYTiGilpsIfeilmhBVr-vLsS1OMSP_3Wa1vNs0LeowfyB",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8389/oauth2/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8389",
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth introspect",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "clientId",
+									"value": "authTest",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "read write trust",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "authTesttoken",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "eyJ4NXQjUzI1NiI6IjhFdU84S0djbnFnaGxGcHdhbUlybHpLRXhEcHFKeGpHVkRNNzByUFhydVkiLCJraWQiOiJhd2Jsb2ciLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsImF1ZCI6ImF3YmxvZyIsIm5iZiI6MTY1MjgxODk0NSwidXNlcl9pZCI6IjIiLCJzY29wZSI6WyJteXVzZXI6cmVhZCIsInBvc3RzOndyaXRlIiwibXl1c2VyOndyaXRlIl0sImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdDo4MDgyIiwidXNlcl9mdWxsbmFtZSI6Ikpvw6NvIGRhIFNpbHZhIiwiZXhwIjoxNjUyODE5ODQ1LCJpYXQiOjE2NTI4MTg5NDUsImF1dGhvcml0aWVzIjpbIlJPTEVfQ0xJRU5UIl19.YVQrRcWvxhC4VFbx9p3Xr8e15XKlzP8gV-uhdPZqMGMTLJpZ8tnXU5krKx-if_TwiTpg9SlNLXSxOOOKP58oDyxbL8_1mSqxB1vGuZJtTkDScNuwAY87qnHx05tkVMp9MuiGCbFYe7eziG7VA-x_XyBcff5K21Zjhp_JroC1Z28Sq_M1arpQ1k2btjipnoYW2J-MVg8ri1uth4kjoVK1TI4i_mjfrYtJpW0s9tWdj7LrLajPSh_xPltQq5VzZTMvJZZkUgnWwFf9S3rbca-krrmkxI53u1BzcgVWc96LXlFKX4aBhKdCau5J14Vvj29JvVMXelw63w56jXSsUULr8w",
+									"type": "string"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "https://oauth.pstmn.io/v1/callback",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8082/oauth2/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "http://localhost:8082/oauth2/authorize",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code_with_pkce",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQjUzI1NiI6Ind2RWdkSEZOZWZuQ0Y3ZlkxNFRRVzd2aUo1SGdmcW9NNmw4b3Q0SUpVTUUiLCJraWQiOiJhdXRoVGVzdCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhdXRoVGVzdCIsImF1ZCI6ImF1dGhUZXN0IiwibmJmIjoxNjgzNzI4NTU4LCJzY29wZSI6WyJyZWFkIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODM4OSIsImV4cCI6MTY4MzcyODg1OCwiaWF0IjoxNjgzNzI4NTU4fQ.REMgdxPP8CRTiX9_1iRNs02qv0jwg4ZSh4AgWc3b1l0-4VDEwe9pgwKdzmTC6QIRhsu7CsJtVs0UPNnRlWplppY_hLCXpE68wLGhcdCdPR63RLNeFdAe7mIg5J68YtAeYUXDfBZqovDh1SaR50_as0PJGlhK91BjE75bgjr2yks7uTcgdh4dTKG1VjYKeL9SCNbzj_07XUjO9gYKAxQladw8dWC3HjCFxabqTz6z1Kt7Dh0TsTkkcyyUlx8ct8znAswI9PcvWbsMHLnM-bb-vuzqUKORPpIjaKFxbrQAugpg1_bZavA7PzqoaDeYP1IVrPjPxCnq5NFosYJLlikvKQ",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8082/oauth2/introspect",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"oauth2",
+								"introspect"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth introspect ClientCredentials",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "authTest",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQjUzI1NiI6Ind2RWdkSEZOZWZuQ0Y3ZlkxNFRRVzd2aUo1SGdmcW9NNmw4b3Q0SUpVTUUiLCJraWQiOiJhdXRoVGVzdCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhdXRoVGVzdCIsImF1ZCI6ImF1dGhUZXN0IiwibmJmIjoxNjgzNzI4NDQ4LCJzY29wZSI6WyJyZWFkIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODM4OSIsImV4cCI6MTY4MzcyODc0OCwiaWF0IjoxNjgzNzI4NDQ4fQ.0ounSM6TOMn3heYQxwT1qOXXWkN63PQBwc7KHhyBfJKYb0gtS9C4J_Qi-YunhfYawDGXipLVnwD4ycr4Jx_arAOBFwZc0adG_XYrHUpYb4Q5Z-MnED3cQNqLwLuFFvDVOusq1sZ9rJfAerF4jjVxCMY9dwXCrFdzXFxs4_oQi-zmeXBsW3FW7gb4lvFx9RTB1cdZPpgGZZRKZoU_iynwP8WvX9M0CngLvZm0P7IEzGvqGftYheFwIVUmf2BkBIidFmwL_ub_q1U98eOX-jP8C7jo-4JUyTJeD-r-Z30SMP-bpwkza7dTDlFugzR8NSTyo2b-PBKRk_jkBT2HhXAl9Q",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8389/oauth2/introspect",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8389",
+							"path": [
+								"oauth2",
+								"introspect"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth revoke",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "awblog",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "token",
+									"value": "ptI9ZGLuYvJA1jGXng66-tMA0wuAQOzuZMjkky254DEjgXtzkwijPJByz2FS051PPJNLAPAjSGJqjDs0_w7YYTiGilpsIfeilmhBVr-vLsS1OMSP_3Wa1vNs0LeowfyB",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8389/oauth2/revoke",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8389",
+							"path": [
+								"oauth2",
+								"revoke"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth JWKS",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8389/oauth2/jwks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8389",
+							"path": [
+								"oauth2",
+								"jwks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request Auth Code (Navegador)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/oauth2/authorize?response_type=code&client_id=authTest&state=abc&redirect_uri=https://oidcdebugger.com/debug&scope=read write trust",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"oauth2",
+								"authorize"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "code"
+								},
+								{
+									"key": "client_id",
+									"value": "authTest"
+								},
+								{
+									"key": "state",
+									"value": "abc"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "https://oidcdebugger.com/debug"
+								},
+								{
+									"key": "scope",
+									"value": "read write trust"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "hr-worker",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/workers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"workers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/workers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"workers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Bia\",\r\n    \"dailyIncome\": 200\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/workers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"workers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "hr-payroll",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8101/payments/1/days/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8101",
+							"path": [
+								"payments",
+								"1",
+								"days",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
