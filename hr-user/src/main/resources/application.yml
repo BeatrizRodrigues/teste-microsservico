@@ -2,6 +2,10 @@ spring:
   application:
     name: hr-user
 
+  sql:
+    init:
+      mode: always
+
   # PROFILE ACTIVE
   profiles:
     active: dev
