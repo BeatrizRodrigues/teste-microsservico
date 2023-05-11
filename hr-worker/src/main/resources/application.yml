@@ -14,20 +14,14 @@ spring:
     console:
       enabled: true
 
-    # CONFIG SERVER
-#    cloud:
-#      config:
-#        name: config-server
-#        uri: optional:configserver:http://localhost:8888
-#        fail-fast: true
-
 # EUREKA CLIENT
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
   instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
     preferIpAddress: true
 
 server:
-  port: 8001
+  port: ${PORT:0}
