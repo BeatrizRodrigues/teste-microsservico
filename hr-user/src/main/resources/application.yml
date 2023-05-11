@@ -2,6 +2,10 @@ spring:
   application:
     name: hr-user
 
+  spring:
+    jpa:
+      hibernate:
+        ddl-auto: created
   sql:
     init:
       mode: always
