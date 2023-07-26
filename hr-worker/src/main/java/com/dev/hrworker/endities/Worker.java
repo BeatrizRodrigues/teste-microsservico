@@ -1,50 +1,63 @@
 package com.dev.hrworker.endities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
+@Getter
+@Setter
 @Entity
-@Table(name = "tb_worker")
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "TB_USER")
 public class Worker implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "USER_ID")
     private Long id;
+
+    @Column(name = "NAME_USER")
     private String name;
-    private Double dailyIncome;
 
-    public Worker() {
+    @Column(name = "USERNAME")
+    private String username;
+
+    @Column(name = "EMAIL")
+    private String email;
+
+    @Column(name = "PASSWORD_USER")
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "TIPO")
+    private Tipo tipo;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "STATUS")
+    private StatusCadastros status;
+
+    @Column(name = "CRIADO_EM", updatable = false)
+    private LocalDateTime dataCriacao;
+
+    @Column(name = "ALTERADO_EM")
+    private LocalDateTime dataAtualizacao;
+
+    public enum Tipo {
+        ADMIN,
+        CLIENT
     }
 
-    public Worker(Long id, String name, Double dailyIncome) {
-        this.id = id;
-        this.name = name;
-        this.dailyIncome = dailyIncome;
+    public enum StatusCadastros {
+        A,
+        I
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Double getDailyIncome() {
-        return dailyIncome;
-    }
-
-    public void setDailyIncome(Double dailyIncome) {
-        this.dailyIncome = dailyIncome;
-    }
 }

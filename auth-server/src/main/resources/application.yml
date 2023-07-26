@@ -1,10 +1,18 @@
 spring:
-  ldap:
-    embedded:
-      ldif: classpath:test-server.ldif
-      base-dn: dc=springframework,dc=org
-      port: 8389
-#      url: ldap://localhost:8389/
+  application:
+    name: auth-server
+
+  # PROFILE ACTIVE
+  profiles:
+    active: dev
+
+  # CONFIG SERVER NAME
+  config:
+    import: optional:configserver:http://localhost:8888/
+
+  h2:
+    console:
+      enabled: true
 
 server:
   port: 8082
@@ -15,5 +23,5 @@ aw:
     jks:
       keypass: 123456
       storepass: 123456
-      alias: authTest
-      path: keystore/authTest.jks
+      alias: authserve
+      path: keystore/authserve.jks
